@@ -93,8 +93,8 @@ Puedes personalizar la configuración de Tailwind en `tailwind.config.js`.
 
 La plantilla utiliza [Lucide React Native](https://lucide.dev/guide/packages/lucide-react-native) para los iconos. Para que los iconos soporten la prop `className` de Nativewind, se utiliza una utilidad `iconWithClassName` que se encuentra en `lib/icons/iconWithClassName.ts`.
 
-> [!CAUTION]
-> Neglecting to wrap icons with iconWithClassName will prevent you from being able to update the color or opacity props via the className prop.
+> [!Precaución]
+> Si no envuelves los iconos con `iconWithClassName`, no podrás actualizar las props de color u opacidad mediante la prop `className`.
 
 **Ejemplo de configuración de un icono:**
 
