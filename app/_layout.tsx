@@ -5,8 +5,8 @@ import './globals.css';
   import { StatusBar } from 'expo-status-bar';
   import * as React from 'react';
   import { Platform } from 'react-native';
-  import { NAV_THEME } from '../lib/constants';
-  import { useColorScheme } from '../lib/useColorScheme';
+  import { NAV_THEME } from '~/lib/constants';
+  import { useColorScheme } from '~/lib/useColorScheme';
 
   const LIGHT_THEME: Theme = {
     ...DefaultTheme,
