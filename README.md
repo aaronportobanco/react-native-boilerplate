@@ -146,17 +146,27 @@ La estructura de archivos está diseñada para ser escalable y mantenible:
 .
 ├── app/                  # Rutas y pantallas de la aplicación (Expo Router).
 │   ├── _layout.tsx       # Layout principal de la aplicación.
+│   ├── globals.css       # Hoja de estilos globales.
 │   └── index.tsx         # Pantalla de inicio.
 ├── assets/               # Imágenes, fuentes y otros recursos estáticos.
+│   ├── fonts/            # Fuentes usadas dentro de la app.
+│   ├── images/           # Imagenes usadas dentro de la app, como splash o favicon.
 ├── components/           # Componentes de UI reutilizables.
 │   └── ui/               # Componentes de UI básicos (Button, Text, etc.).
 ├── lib/                  # Lógica de negocio, utilidades y constantes.
 │   ├── constants.ts      # Constantes de la aplicación.
 │   ├── icons/            # Configuración y exportación de iconos.
+│   ├── useColorScheme.tsx # Configuración para temas y modo de color.
 │   └── utils.ts          # Funciones de utilidad.
+├── app.json              # Configuración de la aplicación Expo.
 ├── babel.config.js       # Configuración de Babel (incluye alias de ruta).
+├── components.json       # Configuración de alias para componentes.
+├── metro.config.js       # Configuración de Metro bundler.
 ├── tailwind.config.js    # Configuración de Nativewind y Tailwind CSS.
-└── package.json          # Dependencias y scripts del proyecto.
+├── tsconfig.json         # Configuración de TypeScript.
+├── package.json          # Dependencias y scripts del proyecto.
+├── expo-env.d.ts         # Tipos globales para Expo.
+└── nativewind-env.d.ts   # Tipos globales para Nativewind.
 ```
 
 ## 📜 Scripts Disponibles
