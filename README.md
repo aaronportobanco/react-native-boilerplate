@@ -1,60 +1,71 @@
-# Plantilla de React Native (Expo)
+# React Native Boilerplate con Expo
 
-Una plantilla de inicio profesional para proyectos de React Native con Expo, preconfigurada con herramientas modernas para un desarrollo rápido y escalable.
+Template de inicio rápido para proyectos de React Native utilizando Expo. Está preconfigurado con una selección de herramientas y librerías modernas para acelerar el desarrollo de aplicaciones móviles.
 
-## ✨ Características Principales
+## ✨ Características Incluidas
 
+- **TypeScript**: Tipado estático para un desarrollo más confiable y mantenible.
 - **Expo:** Framework que simplifica el desarrollo y despliegue de aplicaciones React Native.
-- **Nativewind:** Clases de utilidad de Tailwind CSS para un estilizado rápido y consistente.
+- **Theming y Estilos**: Configuración de Tailwind CSS (a través de [nativewind](https://www.nativewind.dev/)) y sistema de Modo Claro/Oscuro integrado.
 - **Lucide Icons:** Set de iconos SVG limpios y personalizables, integrados con Nativewind.
 - **Expo Router:** Navegación y enrutamiento basados en el sistema de archivos para una estructura de aplicación sólida e intuitiva.
-- **Componentes Reutilizables:** Arquitectura basada en componentes para una UI cohesiva y mantenible.
+- **Arquitectura de Componentes de UI Avanzada**: Patrón de composición para componentes flexibles y modulares usando `class-variance-authority`, `clsx`, `tailwind-merge` y `@rn-primitives/slot`.
 - **Estructura Escalable:** Organización de archivos pensada para el crecimiento y la mantenibilidad del proyecto.
-- **Alias de Ruta:** Configuración de alias (`@/`) para importaciones más limpias.
+- **Alias de Ruta:** Configuración de alias (`@/` y `~/`) para importaciones más limpias.
+- **Lint y Formateo**: Eslint y Prettier para mantener un código consistente.
+- **Manejo de Estado**: Abierto a integración con Redux Toolkit, Zustand, etc.
 
 ## 🚀 Guía de Inicio Rápido
 
-Sigue estos pasos para empezar a usar la plantilla.
-
 ### Prerrequisitos
 
-Asegúrate de tener instalado [Node.js](https://nodejs.org/) (se recomienda la versión LTS). El CLI de Expo se utilizará a través de `npx`, por lo que no es necesaria una instalación global.
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión LTS recomendada) y [Expo CLI](https://docs.expo.dev/workflow/expo-cli/).
 
 ### Instalación
 
-1.  **Usa esta plantilla:** Haz clic en el botón "Use this template" en GitHub para crear tu propio repositorio.
+```bash
+# Clona el repositorio
+git clone https://github.com/aaronportobanco/react-native-boilerplate.git
 
-2.  **Clona tu repositorio:**
-    ```bash
-    git clone https://github.com/tu-usuario/tu-repositorio.git
-    cd tu-repositorio
-    ```
+# Accede al directorio
+cd react-native-boilerplate
 
-3.  **Instala las dependencias:**
-    ```bash
-    npm install
-    ```
-    o
-    ```bash
-    yarn install
-    ```
+# Instala las dependencias
+npm install
+# o
+yarn install
+```
 
 ### Ejecutando el Proyecto
 
-Para iniciar el servidor de desarrollo, ejecuta:
+Para iniciar el proyecto en modo de desarrollo con Expo:
 
 ```bash
-npm start
+npm run start
+# o
+yarn start
 ```
 
-Esto iniciará Metro Bundler. Desde la terminal, puedes:
-- Presionar `a` para abrir en un emulador de Android.
-- Presionar `i` para abrir en un simulador de iOS.
-- Presionar `w` para abrir en la web.
-
-También puedes escanear el código QR con la aplicación Expo Go en tu dispositivo móvil.
+Esto abrirá la herramienta de desarrollo de Expo, desde donde podrás:
+- **Ejecutar** la app en un emulador/simulador iOS o Android.
+- **Escanear** el código QR con la app Expo Go en tu dispositivo físico.
+- **Depurar** errores y ver el registro de la consola.
 
 ## 🛠️ Tecnologías y Convenciones
+
+### Arquitectura de Componentes de UI
+
+Este template utiliza un patrón de composición avanzado para crear y manejar componentes con mayor flexibilidad y modularidad:
+
+- **class-variance-authority**: Facilita la creación de variantes de tus componentes de forma escalable y organizada.
+- **Función `cn`**: Combina [clsx](https://github.com/lukeed/clsx) y [tailwind-merge](https://github.com/dcastil/tailwind-merge) para fusionar clases de Tailwind CSS de manera segura, evitando conflictos de estilo.
+- **@rn-primitives/slot**: Permite pasar las props a un único elemento hijo a través de la prop `asChild`, aumentando la flexibilidad y composición de los componentes.
+
+### Sistema de Theming (Modo Claro/Oscuro)
+
+- **Hook de estado de tema**: Se utiliza `useColorScheme` de [nativewind](https://www.nativewind.dev/) para detectar y mantener el estado del tema.
+- **Variables de color**: Los colores se definen como variables CSS en `globals.css`, lo que facilita la gestión de estilos para ambos modos.
+- **Integración con React Navigation**: El modo de tema también afecta la navegación configurada en `app/_layout.tsx`, apoyado por constantes definidas en [`NAV_THEME`](lib/constants.ts).
 
 ### Estilizado con Nativewind
 
@@ -102,19 +113,25 @@ import { IconSun } from "@/lib/icons";
 const MyComponent = () => <IconSun className="text-yellow-500" size={48} />;
 ```
 
+### Navegación
+
+La navegación está gestionada por [Expo Router](https://docs.expo.dev/router/introduction/), que utiliza un sistema de enrutamiento basado en archivos. La estructura de navegación se define dentro del directorio `app/`.
+
 ### Alias de Ruta
 
-Para mantener las importaciones limpias y evitar rutas relativas complejas (ej. `../../components`), se ha configurado un alias de ruta. El alias `@/` apunta al directorio raíz del proyecto.
+Para mantener las importaciones limpias y evitar rutas relativas complejas (ej. `../../components`), se han configurado alias de ruta.
+
+-   **`@/`**: Es el alias por defecto y apunta al directorio raíz del proyecto.
+-   **`~/`**: Este alias es utilizado específicamente por `react-native-reusables`.
 
 **Ejemplo de uso:**
 ```tsx
 // En lugar de: import { MyComponent } from './components/MyComponent';
 import { MyComponent } from '@/components/MyComponent';
+
+// Ejemplo para react-native-reusables
+import { SomeReusableComponent } from '~/components/SomeReusableComponent';
 ```
-
-### Navegación
-
-La navegación está gestionada por [Expo Router](https://docs.expo.dev/router/introduction/), que utiliza un sistema de enrutamiento basado en archivos. La estructura de navegación se define dentro del directorio `app/`.
 
 ## 📂 Estructura del Proyecto
 
@@ -146,7 +163,7 @@ La estructura de archivos está diseñada para ser escalable y mantenible:
 
 ## 🤝 Contribuciones
 
-Las contribuciones son bienvenidas. Si tienes ideas para mejorar la plantilla, por favor abre un *issue* para discutirlo o envía un *pull request*.
+Se aceptan contribuciones a través de *pull requests*. Antes de enviar cambios, revisa las guías de estilo y asegúrate de que el código se ajuste a los linters y convenciones del proyecto.
 
 ## 📄 Licencia
 
