@@ -23,18 +23,20 @@ Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión LTS recom
 
 ### Instalación
 
-```bash
-# Clona el repositorio
-git clone https://github.com/aaronportobanco/react-native-boilerplate.git
+Este es un repositorio de template. Para usarlo correctamente, sigue estos pasos:
 
-# Accede al directorio
-cd react-native-boilerplate
-
-# Instala las dependencias
-npm install
-# o
-yarn install
-```
+1.  **Crea tu propio repositorio desde este template:** Haz clic en el botón **"Use this template"** en la parte superior de la página de GitHub.
+2.  **Clona tu nuevo repositorio:** Reemplaza `TU_USUARIO/TU_REPOSITORIO` con los datos de tu repositorio.
+    ```bash
+    git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+    ```
+3.  **Accede al directorio e instala las dependencias:**
+    ```bash
+    cd TU_REPOSITORIO
+    npm install
+    # o
+    yarn install
+    ```
 
 ### Ejecutando el Proyecto
 
